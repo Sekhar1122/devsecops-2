@@ -3,7 +3,10 @@ node {
     stage('Cloning Git') {
         /* Let's make sure we have the repository cloned to our workspace */
        checkout scm
-    }  
+    } 
+    stage('SCA-dependencycheck') {
+        dependencyCheck additionalArguments: '--format html', odcInstallation: 'Default'
+    }
  
     stage('Build-and-Tag') {
        app = docker.build("sindhuhack/snake")
