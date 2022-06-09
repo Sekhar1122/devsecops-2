@@ -5,7 +5,7 @@ node {
        checkout scm
     } 
     stage('SCA-dependencycheck') {
-        dependencyCheck additionalArguments: '--format html', odcInstallation: 'Default'
+        dependencyCheck additionalArguments: '--format HTML', odcInstallation: 'Default'
     }
  
     stage('Build-and-Tag') {
